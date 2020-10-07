@@ -7,15 +7,16 @@ class Truss < Formula
 
   if OS.mac?
     url "https://github.com/metaverse/truss/releases/download/v0.2.0/truss_0.2.0_Darwin_x86_64.tar.gz"
-    sha256 "d2060e34bf16b7808e4dbbe145ffd77486194c9527a3ac87e4fc23412a3f0537"
+    sha256 "4b6d83c384bf8a633fc1e41b8b197b3f6e892e7e0ccfca0a58cc6df38a4aed1b"
   elsif OS.linux?
     if Hardware::CPU.intel?
       url "https://github.com/metaverse/truss/releases/download/v0.2.0/truss_0.2.0_Linux_x86_64.tar.gz"
-      sha256 "6a564a94e249506c00b84eca5a95a254dad539124fdbbbf7e2830b283ed2609f"
+      sha256 "22fc8195e0462bbdd56545f78cf98180cb10556b922c709ea21e978dcd2dab55"
     end
   end
   
   depends_on "protobuf"
+  depends_on "protoc-gen-gogo"
   depends_on "protoc-gen-gogofaster"
 
   def install
