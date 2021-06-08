@@ -5,16 +5,21 @@
 class Truss < Formula
   desc "Truss helps you build go-kit microservices without having to worry about writing or maintaining boilerplate code"
   homepage "https://github.com/metaverse/truss"
-  version "0.2.1"
+  version "0.3.0"
   bottle :unneeded
 
-  if OS.mac?
-    url "https://github.com/metaverse/truss/releases/download/v0.2.1/truss_0.2.1_Darwin_x86_64.tar.gz"
-    sha256 "d9e83dfb834d7fc361dda00accb0a6367790c0cdba687a7b47ce43164e2ee0a3"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/metaverse/truss/releases/download/v0.3.0/truss_0.3.0_Darwin_x86_64.tar.gz"
+      sha256 "ed4651f25b0288c2477f03c0381cfefe31e7ff37fed7f0789bc64caeed19e9a0"
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/metaverse/truss/releases/download/v0.2.1/truss_0.2.1_Linux_x86_64.tar.gz"
-    sha256 "efc5dfc50c1b34fceb9d998fa8b58b117049633e5c0426c8125287f98a3181d7"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/metaverse/truss/releases/download/v0.3.0/truss_0.3.0_Linux_x86_64.tar.gz"
+      sha256 "21b7806db50638e8ed6e86909ec63f8037fd6291e14ada92b89fa221865191c1"
+    end
   end
 
   depends_on "protobuf"
